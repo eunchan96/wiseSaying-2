@@ -1,6 +1,7 @@
 package com.back;
 
 import com.back.domain.system.controller.SystemController;
+import com.back.domain.wiseSaying.controller.WiseSayingController;
 
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class App {
         System.out.println("== 명언 앱 ==");
 
         SystemController systemController = AppContext.systemController;
+        WiseSayingController wiseSayingController = AppContext.wiseSayingController;
 
         while (true) {
             System.out.print("명령) ");
@@ -21,6 +23,7 @@ public class App {
                     systemController.actionExit();
                     return;
                 }
+                case "등록" -> wiseSayingController.actionWrite();
                 default -> System.out.println("알 수 없는 명령어입니다.");
             }
         }
